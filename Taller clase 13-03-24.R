@@ -8,6 +8,7 @@ library(readxl)
 
 #Punto 1##############
 setwd("C:/Users/ander/OneDrive - Universidad Nacional de Colombia/Documentos/(2024-01) Octavo Semestre/Estadística Espacial/Estadistica-Espacial-Talleres")
+setwd("C:/Users/gcvh2/Documents/UNAL/8. 2024 -1S/Estadística Espacial/Estadistica-Espacial-Talleres")
 superficie<-read_excel("Superficie.xlsx")
 fondo<-read_excel("Fondo.xlsx")
 summary(superficie)
