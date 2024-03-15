@@ -33,38 +33,24 @@ plot(variograma, env=variograma.env)
 variofit(variograma, ini.cov.pars = )
 
 
+# Fondo - Salinidad ####
+vario_fsali<-variog(coords=Fondo[,c("X","Y")],data=Fondo$Sali,uvec=seq(0,1000,length=50),estimator.type="class")
+plot(vario_fsali)
+
+fsali_esferico<-variofit(vario_fsali,ini=c(sigmasq=varianza_fsali,phi=100),fix.nugget=FALSE,cov.model="spherical")
+fsali_lineal<-variofit(vario_fsali,ini=c(sigmasq=varianza_fsali,phi=100),fix.nugget=FALSE,cov.model="linear")
+fsali_exponencial<-variofit(vario_fsali,ini=c(sigmasq=varianza_fsali,phi=100),fix.nugget=FALSE,cov.model="exponential")
+
+R2_fsali_esferico<-1-summary(fsali_esferico)$sum.of.squares/varianza_fsali
+R2_fsali_lineal<-1-summary(fsali_lineal)$sum.of.squares/varianza_fsali
+R2_fsali_exponencial<-1-summary(fsali_exponencial)$sum.of.squares/varianza_fsali
+
+print(paste("R^2 del modelo esférico:", R2_fsali_esferico))
+print(paste("R^2 del modelo lineal:", R2_fsali_lineal)) # Mejor de todos
+print(paste("R^2 del modelo exponencial:", R2_fsali_exponencial))
+
+fsali_pepita<-fsali_lineal$nugget;fsali_pepita
+fsali_meseta<-fsali_lineal$nugget+summary(fsali_lineal)$estimated.pars[2];fsali_meseta
+fsali_rango<-summary(fsali_lineal)$estimated.pars[3];fsali_rango
 
 
-
-
-gamma_exp <- variograma$gamma
-gamma_modelo <- variograma$np[1] * (1 - exp(-variograma$dist/rango)) + nugget
-R2_manual <- cor(gamma_exp, gamma_modelo)^2
-
-# Paso 3: Calcular el nugget como la intersección del variograma experimental con el eje y
-nugget <- variograma$ini[1]
-
-# Paso 4: Calcular el psill como la meseta del variograma experimental
-psill <- variograma$var[1]
-
-# Paso 5: Calcular el rango como la distancia donde el variograma alcanza el 95% del psill
-rango <- max(variograma$dist[which(gamma_exp <= 0.95 * psill)])
-
-
-variogram_model <- fit.variogram(variograma, 
-                                 vgm(psill = 5, range = 3, nugget = 1))
-
-# Obtener los parámetros del modelo ajustado
-pepita <- variogram_model$psill - variogram_model$nugget
-rango <- variogram_model$range
-meseta <- variogram_model$psill
-
-# Calcular R^2
-modelo_prediccion <- variogram_model$fit
-R2 <- cor(variograma$gamma, modelo_prediccion)^2
-
-# Imprimir los resultados
-cat("Pepita:", pepita, "\n")
-cat("Rango:", rango, "\n")
-cat("Meseta:", meseta, "\n")
-cat("R^2:", R2, "\n")
