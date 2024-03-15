@@ -71,4 +71,60 @@ foxi_pepita<-foxi_lineal$nugget;foxi_pepita
 foxi_meseta<-foxi_lineal$nugget+summary(foxi_lineal)$estimated.pars[2];foxi_meseta
 foxi_rango<-summary(foxi_lineal)$estimated.pars[3];foxi_rango
 
+# Fondo - Temperatura ####
+vario_ftemp<-variog(coords=fondo[,c("X","Y")],data=fondo$temp,uvec=seq(0,1000,length=50),estimator.type="class")
+plot(vario_ftemp)
+
+ftemp_esferico<-variofit(vario_ftemp,ini=c(sigmasq=var(fondo[,5]),phi=0),fix.nugget=FALSE,cov.model="spherical")
+ftemp_lineal<-variofit(vario_ftemp,ini=c(sigmasq=var(fondo[,5]),phi=0),fix.nugget=FALSE,cov.model="linear")
+ftemp_exponencial<-variofit(vario_ftemp,ini=c(sigmasq=var(fondo[,5]),phi=0),fix.nugget=FALSE,cov.model="exponential")
+
+R2_ftemp_esferico<-1-summary(ftemp_esferico)$sum.of.squares/var(fondo[,5])
+R2_ftemp_lineal<-1-summary(ftemp_lineal)$sum.of.squares/var(fondo[,5])
+R2_ftemp_exponencial<-1-summary(ftemp_exponencial)$sum.of.squares/var(fondo[,5])
+
+print(paste("R^2 del modelo esférico:", R2_ftemp_esferico))
+print(paste("R^2 del modelo lineal:", R2_ftemp_lineal)) # Mejor de todos
+print(paste("R^2 del modelo exponencial:", R2_ftemp_exponencial))
+
+ftemp_pepita<-ftemp_lineal$nugget;ftemp_pepita
+ftemp_meseta<-ftemp_lineal$nugget+summary(ftemp_lineal)$estimated.pars[2];ftemp_meseta
+ftemp_rango<-summary(ftemp_lineal)$estimated.pars[3];ftemp_rango
+
+# Fondo - PH ####
+vario_fph<-variog(coords=fondo[,c("X","Y")],data=fondo$pH,uvec=seq(0,1000,length=50),estimator.type="class")
+plot(vario_fph)
+
+fph_esferico<-variofit(vario_fph,ini=c(sigmasq=var(fondo[,6]),phi=0),fix.nugget=FALSE,cov.model="spherical")
+fph_lineal<-variofit(vario_fph,ini=c(sigmasq=var(fondo[,6]),phi=0),fix.nugget=FALSE,cov.model="linear")
+fph_exponencial<-variofit(vario_fph,ini=c(sigmasq=var(fondo[,6]),phi=0),fix.nugget=FALSE,cov.model="exponential")
+
+R2_fph_esferico<-1-summary(fph_esferico)$sum.of.squares/var(fondo[,6])
+R2_fph_lineal<-1-summary(fph_lineal)$sum.of.squares/var(fondo[,6])
+R2_fph_exponencial<-1-summary(fph_exponencial)$sum.of.squares/var(fondo[,6])
+
+print(paste("R^2 del modelo esférico:", R2_fph_esferico))
+print(paste("R^2 del modelo lineal:", R2_fph_lineal)) # Mejor de todos
+print(paste("R^2 del modelo exponencial:", R2_fph_exponencial))
+
+fph_pepita<-fph_lineal$nugget;fph_pepita
+fph_meseta<-fph_lineal$nugget+summary(fph_lineal)$estimated.pars[2];fph_meseta
+fph_rango<-summary(fph_lineal)$estimated.pars[3];fph_rango
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
