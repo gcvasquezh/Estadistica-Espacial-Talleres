@@ -112,6 +112,108 @@ fph_pepita<-fph_lineal$nugget;fph_pepita
 fph_meseta<-fph_lineal$nugget+summary(fph_lineal)$estimated.pars[2];fph_meseta
 fph_rango<-summary(fph_lineal)$estimated.pars[3];fph_rango
 
+# Superficie - Salinidad ####
+vario_ssali<-variog(coords=superficie[,c("X","Y")],data=superficie$salinid,uvec=seq(0,1000,length=50),estimator.type="class")
+plot(vario_ssali)
+
+ssali_esferico<-variofit(vario_ssali,ini=c(sigmasq=var(superficie[,3]),phi=0),fix.nugget=FALSE,cov.model="spherical")
+ssali_lineal<-variofit(vario_ssali,ini=c(sigmasq=var(superficie[,3]),phi=0),fix.nugget=FALSE,cov.model="linear")
+ssali_exponencial<-variofit(vario_ssali,ini=c(sigmasq=var(superficie[,3]),phi=0),fix.nugget=FALSE,cov.model="exponential")
+
+R2_ssali_esferico<-1-summary(ssali_esferico)$sum.of.squares/var(superficie[,3])
+R2_ssali_lineal<-1-summary(ssali_lineal)$sum.of.squares/var(superficie[,3])
+R2_ssali_exponencial<-1-summary(ssali_exponencial)$sum.of.squares/var(superficie[,3])
+
+print(paste("R^2 del modelo esférico:", R2_ssali_esferico))
+print(paste("R^2 del modelo lineal:", R2_ssali_lineal)) # Mejor de todos
+print(paste("R^2 del modelo exponencial:", R2_ssali_exponencial))
+
+ssali_pepita<-ssali_lineal$nugget;ssali_pepita
+ssali_meseta<-ssali_lineal$nugget+summary(ssali_lineal)$estimated.pars[2];ssali_meseta
+ssali_rango<-summary(ssali_lineal)$estimated.pars[3];ssali_rango
+
+# Superficie - Oxigeno ####
+vario_soxig<-variog(coords=superficie[,c("X","Y")],data=superficie$oxigeno,uvec=seq(0,1000,length=50),estimator.type="class")
+plot(vario_soxig)
+
+soxig_esferico<-variofit(vario_soxig,ini=c(sigmasq=var(superficie[,4]),phi=0),fix.nugget=FALSE,cov.model="spherical")
+soxig_lineal<-variofit(vario_soxig,ini=c(sigmasq=var(superficie[,4]),phi=0),fix.nugget=FALSE,cov.model="linear")
+soxig_exponencial<-variofit(vario_soxig,ini=c(sigmasq=var(superficie[,4]),phi=0),fix.nugget=FALSE,cov.model="exponential")
+
+R2_soxig_esferico<-1-summary(soxig_esferico)$sum.of.squares/var(superficie[,4])
+R2_soxig_lineal<-1-summary(soxig_lineal)$sum.of.squares/var(superficie[,4])
+R2_soxig_exponencial<-1-summary(soxig_exponencial)$sum.of.squares/var(superficie[,4])
+
+print(paste("R^2 del modelo esférico:", R2_soxig_esferico))
+print(paste("R^2 del modelo lineal:", R2_soxig_lineal)) # Mejor de todos
+print(paste("R^2 del modelo exponencial:", R2_soxig_exponencial))
+
+soxig_pepita<-soxig_lineal$nugget;soxig_pepita
+soxig_meseta<-soxig_lineal$nugget+summary(soxig_lineal)$estimated.pars[2];soxig_meseta
+soxig_rango<-summary(soxig_lineal)$estimated.pars[3];soxig_rango
+
+# Superficie - Temperatura ####
+vario_stemp<-variog(coords=superficie[,c("X","Y")],data=superficie$temp,uvec=seq(0,1000,length=50),estimator.type="class")
+plot(vario_stemp)
+
+stemp_esferico<-variofit(vario_stemp,ini=c(sigmasq=var(superficie[,5]),phi=0),fix.nugget=FALSE,cov.model="spherical")
+stemp_lineal<-variofit(vario_stemp,ini=c(sigmasq=var(superficie[,5]),phi=0),fix.nugget=FALSE,cov.model="linear")
+stemp_exponencial<-variofit(vario_stemp,ini=c(sigmasq=var(superficie[,5]),phi=0),fix.nugget=FALSE,cov.model="exponential")
+
+R2_stemp_esferico<-1-summary(stemp_esferico)$sum.of.squares/var(superficie[,5])
+R2_stemp_lineal<-1-summary(stemp_lineal)$sum.of.squares/var(superficie[,5])
+R2_stemp_exponencial<-1-summary(stemp_exponencial)$sum.of.squares/var(superficie[,5])
+
+print(paste("R^2 del modelo esférico:", R2_stemp_esferico))
+print(paste("R^2 del modelo lineal:", R2_stemp_lineal)) # Mejor de todos
+print(paste("R^2 del modelo exponencial:", R2_stemp_exponencial))
+
+stemp_pepita<-stemp_esferico$nugget;stemp_pepita
+stemp_meseta<-stemp_esferico$nugget+summary(stemp_esferico)$estimated.pars[2];stemp_meseta
+stemp_rango<-summary(stemp_esferico)$estimated.pars[3];stemp_rango
+
+
+# Superficie - Ph ####
+vario_sph<-variog(coords=superficie[,c("X","Y")],data=superficie$ph,uvec=seq(0,1000,length=50),estimator.type="class")
+plot(vario_sph)
+
+sph_esferico<-variofit(vario_sph,ini=c(sigmasq=var(superficie[,6]),phi=0),fix.nugget=FALSE,cov.model="spherical")
+sph_lineal<-variofit(vario_sph,ini=c(sigmasq=var(superficie[,6]),phi=0),fix.nugget=FALSE,cov.model="linear")
+sph_exponencial<-variofit(vario_sph,ini=c(sigmasq=var(superficie[,6]),phi=0),fix.nugget=FALSE,cov.model="exponential")
+
+R2_sph_esferico<-1-summary(sph_esferico)$sum.of.squares/var(superficie[,6])
+R2_sph_lineal<-1-summary(sph_lineal)$sum.of.squares/var(superficie[,6])
+R2_sph_exponencial<-1-summary(sph_exponencial)$sum.of.squares/var(superficie[,6])
+
+print(paste("R^2 del modelo esférico:", R2_sph_esferico))
+print(paste("R^2 del modelo lineal:", R2_sph_lineal)) # Mejor de todos
+print(paste("R^2 del modelo exponencial:", R2_sph_exponencial))
+
+sph_pepita<-sph_lineal$nugget;sph_pepita
+sph_meseta<-sph_lineal$nugget+summary(sph_lineal)$estimated.pars[2];sph_meseta
+sph_rango<-summary(sph_lineal)$estimated.pars[3];sph_rango
+
+# Superficie - Sechi ####
+vario_ssechi<-variog(coords=superficie[,c("X","Y")],data=superficie$secchi,uvec=seq(0,1000,length=50),estimator.type="class")
+plot(vario_ssechi)
+
+ssechi_esferico<-variofit(vario_ssechi,ini=c(sigmasq=var(superficie[,7]),phi=0),fix.nugget=FALSE,cov.model="spherical")
+ssechi_lineal<-variofit(vario_ssechi,ini=c(sigmasq=var(superficie[,7]),phi=0),fix.nugget=FALSE,cov.model="linear")
+ssechi_exponencial<-variofit(vario_ssechi,ini=c(sigmasq=var(superficie[,7]),phi=0),fix.nugget=FALSE,cov.model="exponential")
+
+R2_ssechi_esferico<-1-summary(ssechi_esferico)$sum.of.squares/var(superficie[,7])
+R2_ssechi_lineal<-1-summary(ssechi_lineal)$sum.of.squares/var(superficie[,7])
+R2_ssechi_exponencial<-1-summary(ssechi_exponencial)$sum.of.squares/var(superficie[,7])
+
+print(paste("R^2 del modelo esférico:", R2_ssechi_esferico))
+print(paste("R^2 del modelo lineal:", R2_ssechi_lineal)) # Mejor de todos
+print(paste("R^2 del modelo exponencial:", R2_ssechi_exponencial))
+
+ssechi_pepita<-ssechi_lineal$nugget;ssechi_pepita
+ssechi_meseta<-ssechi_lineal$nugget+summary(ssechi_lineal)$estimated.pars[2];ssechi_meseta
+ssechi_rango<-summary(ssechi_lineal)$estimated.pars[3];ssechi_rango
+
+
 
 
 
