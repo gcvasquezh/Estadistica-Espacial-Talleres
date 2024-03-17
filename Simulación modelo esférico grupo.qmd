@@ -1,7 +1,7 @@
 ---
 title: "Simulación modelo esférico"
 author: 
-   - Karol Stefanny Ayala López 
+   - Karol Stefanny Ayala López. 
    - John Anderson Guarín López 
    - Liliana Catalina Lara Ruiz 
    - Germán Camilo Vásquez Herrera 
