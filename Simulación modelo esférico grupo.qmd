@@ -1,0 +1,153 @@
+---
+title: "Simulación modelo esférico"
+author: 
+   - Karol Stefanny Ayala López 
+   - John Anderson Guarín López 
+   - Liliana Catalina Lara Ruiz 
+   - Germán Camilo Vásquez Herrera 
+format: pdf
+editor: visual
+---
+
+# Librerías
+
+```{r}
+#| warning: false
+library(geoR)
+library(MASS)
+library(ade4)
+```
+
+# Punto 1
+
+#### Generar un enmallado regular tamaño 100.
+
+```{r}
+# Enmallado regular de tamaño 100
+grid<-expand.grid(seq(0,9),seq(0,9))
+plot(grid, col="blue", pch=16, xlab="x", ylab="y", 
+     main="Región de Estudio y\nPuntos de Muestreo")
+
+```
+
+# Punto 2
+
+#### Simular un campo aleatorio Gaussiano estacionario de media $\mu$ con estructura de covarianza esférica.
+
+En este caso, utilizamos $\mu = 17$, $\sigma^2 = 11$ y $\phi = 4$.
+
+```{r}
+# Simulación campo Gaussiano estacionario de media mu con covarianza esférica
+
+# Asignación de valores
+n <- 100
+mu <- 17
+sigma <- 11
+phi <- 4
+
+# Generación de datos correlacionados
+
+## Distancia entre los sitios (Wij)
+distan <- dist(grid, diag=TRUE, upper=TRUE) 
+distan <- as.matrix(distan) 
+
+## Modelo de covarianza esferica
+covarianza<-cov.spatial(distan, cov.model<-"spherical", cov.pars=c(sigma,phi))
+
+## Vector de medias
+medias_cte<-rep(mu,n) 
+
+## Simulación de 100 valores de una normal multivariada
+set.seed(17112000)
+normal_cte <- mvrnorm(1,medias_cte,covarianza)
+datoscte <- cbind(grid[,1],grid[,2],normal_cte)
+datoscte <- as.geodata(datoscte, coords=1:2, var=3)
+plot(datoscte)
+```
+
+# Punto 3
+
+#### Dibujar el modelo teórico de covarianza y el estimado con los datos simulados.
+
+```{r}
+#| message: false
+#| warning: false
+# Modelo teórico de covarianza y modelo estimado
+
+## Variograma teórico
+matplot(distan,sigma-covarianza, type="p",xlab="h",ylab="Variograma",
+        main = "Modelo teórico")
+
+## Variograma estimado
+variograma <- variog(datoscte,option = "smooth",messages = FALSE) 
+plot(variograma$u,variograma$v, xlab="h",ylab="Variograma", 
+     main = "Modelo estimado", pch=16)
+
+```
+
+# Punto 4
+
+#### Encuentre un IC del 95% para $\mu$ empleando las expresiones que tengan en cuenta la correlación espacial.
+
+```{r}
+# IC del 95% para mu usando correlación espacial esférica
+
+## Estimación de mu
+uno<-rep(1,n) 
+mu_est<-(ginv(t(uno)%*%ginv(covarianza)%*%uno))%*%
+  (t(uno)%*%ginv(covarianza)%*%normal_cte)
+
+## Varianza de mu
+var_mu<-ginv(t(uno)%*%ginv(covarianza)%*%uno)
+
+li <- mu_est-1.96*sqrt(var_mu) # LI
+ls <- mu_est+1.96*sqrt(var_mu) # LS
+IC <- cbind(li,ls)
+rownames(IC)<-""
+colnames(IC)<-c("LI","LS");IC
+```
+
+El intervalo de confianza resultante es $IC_{95\%}(\mu)=[15.62069,19.06343]$
+
+# Punto 5
+
+#### Repita los pasos 2 y 4 hasta encontrar 100 IC.
+
+```{r}
+# Repetir de 2 a 4 ####
+
+LI<-NULL
+LS<-NULL
+
+set.seed(17112000)
+for(i in 1:100){
+  normal_cte <- mvrnorm(1,medias_cte,covarianza)
+  mu_est <- (ginv(t(uno)%*%ginv(covarianza)%*%uno))%*%
+    (t(uno)%*%ginv(covarianza)%*%normal_cte)
+  LI[i]<-mu_est-1.96*sqrt(var_mu)
+  LS[i]<-mu_est+1.96*sqrt(var_mu)
+}
+```
+
+# Punto 6
+
+#### ¿Cuántos IC contienen el verdadero valor de $\mu$?.
+
+```{r}
+# Cuantos IC contienen el verdadero valor de mu ####
+tot <- 0
+for(i in 1:100){
+  if(mu>=LI[i] & mu<=LS[i]){
+    tot<-tot+1
+  }
+}
+tot
+```
+
+En total, 97 de los 100 intervalos de confianza contienen el verdadero valor de $\mu=17$. Lo cual tiene sentido pues construimos el intervalo de confianza con $\alpha = 5\%$ de significancia, por lo que no es raro que la cantidad de intervalos que contienen al verdadero valor del parámetro sea cercano a 95. Si repitieramos esto pero para 1000, 10000, 10000, se acercará cada vez más a una cobertura del $95\%$.
+
+# Punto 7
+
+#### ¿Cuál es su conclusión del ejercicio?
+
+Como hemos observado en nuestras sesiones, al construir intervalos de confianza sin considerar la correlación espacial presente en los datos, hemos notado una cobertura deficiente. No obstante, al incorporar esta estructura en nuestra estimación, hemos logrado obtener intervalos con una cobertura más acorde a lo esperado.
