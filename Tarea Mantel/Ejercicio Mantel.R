@@ -19,5 +19,6 @@ tictoc::toc()
 res
 plot(res, xlab="M", main="Montecarlo distribution")
 
-  
+#Ya que el p-vaor es tan pequeño rechazamos la hipótesis nula
+#y decimos que si hay aleatoriedad espacial
 
