@@ -14,10 +14,10 @@ apply(temp,2,missings)
 coord_dists <- dist(cbind(temp$Longitud, temp$Latitud))
 valor_dists <- dist(temp$Valor)
 tictoc::tic()
-res<-mantel.rtest(coord_dists, valor_dists, nrepet = 9999)
+res<-mantel.rtest(coord_dists, valor_dists, nrepet = 1000)
 tictoc::toc()
 res
-plot(res, xlab="M", main="Montecarlo distribution, P-value=0.0295")
+plot(res, xlab="M", main="Montecarlo distribution")
 
 res2=mantel.rtest(station.dists, alter=two-sided, ozone.dists, nrepet = 9999)
 
