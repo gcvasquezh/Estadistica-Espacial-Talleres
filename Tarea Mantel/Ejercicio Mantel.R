@@ -3,7 +3,7 @@ library(readr)
 
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 getwd()
-temp <- read.csv("C:\\Users\\gcvh2\\Documents\\UNAL\\8. 2024 -1S\\Estadística Espacial\\Estadistica-Espacial-Talleres\\Tarea Mantel\\temperatura.csv", sep=",", header=T)
+temp <- read.csv("temperatura.csv", sep=",", header=T)
 temp
 
 
