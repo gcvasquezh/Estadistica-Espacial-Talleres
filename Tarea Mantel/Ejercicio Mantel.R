@@ -19,10 +19,5 @@ tictoc::toc()
 res
 plot(res, xlab="M", main="Montecarlo distribution")
 
-res2=mantel.rtest(station.dists, alter=two-sided, ozone.dists, nrepet = 9999)
-
-
-
-
   
 
