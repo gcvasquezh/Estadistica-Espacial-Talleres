@@ -3,24 +3,17 @@ library(readr)
 
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 getwd()
-temp <- read.csv("temperatura.csv", sep=",", header=T)
-temp
+temp<-read.csv("temperatura.csv", sep=",", header=T)
+temp<-temp[,c(3,4,18)]
 
-
-# Map of stations
-LA <- read.table ("LA.txt", head=TRUE)
-plot(LA$Longitude, LA$Latitude, xlab="Longitude", ylab="Latitude",
-     type="l", col=4, lwd=2, xlim=c(-119, -116), main = "Stations in the Los Angeles area ")
-points(ozone$Lon, ozone$Lat, col=2, pch=16, 
-     main="Location of Ozone monitoring stations in Los Angeles",
-     xlab="Longitude", ylab="Latitude")
-
+missings <- function(x) return(sum(is.na(x)))
+apply(temp,2,missings)
 
 # Mantel test
 ?mantel.rtest
-station.dists <- dist(cbind(ozone$Lon, ozone$Lat))
-ozone.dists <- dist(ozone$Av8top)
-res=mantel.rtest(station.dists, ozone.dists, nrepet = 9999)
+coord_dists <- dist(cbind(temp$Longitud, temp$Latitud))
+valor_dists <- dist(temp$Valor)
+res<-mantel.rtest(coord_dists, valor_dists, nrepet = 9999)
 res
 plot(res, xlab="M", main="Montecarlo distribution, P-value=0.0295")
 
