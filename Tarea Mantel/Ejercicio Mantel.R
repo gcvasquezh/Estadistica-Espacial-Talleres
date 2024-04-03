@@ -1,5 +1,9 @@
-library (ade4)
-library(readr)
+# Taller Estadística Espacial - Test de Mantel
+# Nombre: John Anderson Guarin Lopez - German Camilo Vasquez Herrera
+if (!require(ade4)){install.packages("ade4");library(ade4)}
+if (!require(readr)){install.packages("readr");library(readr)}
+if (!require(rstudioapi)){install.packages("rstudioapi");library(rstudioapi)}
+if (!require(tictoc)){install.packages("tictoc");library(tictoc)}
 
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 getwd()
