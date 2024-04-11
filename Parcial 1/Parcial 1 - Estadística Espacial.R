@@ -44,7 +44,7 @@ plot(distancia,covarianza,pch=16, main="Modelo de covarianza exponencial")
 
 ## Simulación del modelo exponencial, usando descomposición de Cholesky ####
 
-set.seed(17112000)
+set.seed(123)
 medias.ncte <- beta_0+beta_1*grid[,1]+beta_2*grid[,2]
 covar_chol <- chol(covarianza)
 normal_sample <- matrix(rnorm(100), nrow = 100)
@@ -70,7 +70,7 @@ residuales<-as.geodata(residuales_coord, coords=1:2, var=3)
  
 ## Estimación del modelo de variograma (con los residuales) ####
 variog_residuales  <- variog(residuales, option = "bin", max.dist = 10)
-plot(variog_residuales )
+plot(variog_residuales)
 ini.vals <- expand.grid(seq(2,5,l=5), seq(5,10,l=5))
 modelo_residuales <- variofit(variog_residuales, ini=ini.vals, fix.nug=FALSE, wei="npair", min="optim")
 plot(variog_residuales, xlab="Distancia (m)",ylab="Semivarianza", main = "Variograma residuales", pch=16, col=4)
@@ -109,7 +109,7 @@ summary(sqrt(datosncte.kc$krige.var))
 ## Caso 1: rho=0 (Caso insesgado) ####
 
 ### Asignación valores ####
-n<-10 
+n<-100 
 mu<-0
 sig2<-1
 rho<-0
@@ -132,7 +132,7 @@ mean(var_mues)
 ## Caso 2: rho!=0 (Caso sesgado) ####
 
 ### Asignación valores ####
-n<-10
+n<-100
 mu<-0
 sig2<-1
 rho<-0.5
