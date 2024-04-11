@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #### Test de Mantel - Temperatura Bogotá 2023 ####
 
 # Integrantes:
@@ -14,6 +15,14 @@ if (!require(readxl)){install.packages("readxl");library(readxl)}
 if (!require(dplyr)){install.packages("dplyr");library(dplyr)}
 
 # Fijar Directorio y Carga de Base de Datos -------------------------------
+=======
+# Taller Estadística Espacial - Test de Mantel
+# Nombre: John Anderson Guarin Lopez - German Camilo Vasquez Herrera
+if (!require(ade4)){install.packages("ade4");library(ade4)}
+if (!require(readr)){install.packages("readr");library(readr)}
+if (!require(rstudioapi)){install.packages("rstudioapi");library(rstudioapi)}
+if (!require(tictoc)){install.packages("tictoc");library(tictoc)}
+>>>>>>> 5a52a1f1c0157eaafe6fbfca703e4620de0b1201
 
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 getwd()
