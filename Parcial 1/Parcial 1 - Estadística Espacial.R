@@ -129,7 +129,7 @@ for(i in 1:m){
 }
 mean(var_mues)
 
-## Caso 1: rho!=0 (Caso sesgado) ####
+## Caso 2: rho!=0 (Caso sesgado) ####
 
 ### Asignación valores ####
 n<-10
