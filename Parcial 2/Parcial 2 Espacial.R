@@ -63,16 +63,23 @@ queen_lw <- nb2listw(queen, style="W", zero.policy=TRUE)
 
 queen_bogota_df <- nb_to_df(queen, coordenadas_localidades)
 
+legend_labels <- Base_final %>%
+  distinct(Area, Localidad) %>%
+  arrange(Area)
+
 box <- st_bbox(Base_final)
 box
 
 ## Gráfico para vecinos Queen ####
 ggplot() +
   geom_sf(data=Base_col, fill="cyan") +
-  geom_sf(data = Base_final) +
+  geom_sf(data = Base_final, aes(fill = Casos)) +
+  scale_fill_gradient(low = "pink", high = "purple", name = "Casos") +
   geom_point(data = queen_bogota_df, aes(x = x, y = y), color = "blue") +
   geom_segment(data = queen_bogota_df,
                aes(x = x, xend = xend, y = y, yend = yend), color = "blue") +
+  geom_sf_text(data=Base_final,aes(label=Area),col="black",
+               fontface="bold",size=3,fun.geometry=function(x) sf::st_centroid(x)) +
   coord_sf(xlim=c(box$xmin,box$xmax),ylim=c(box$ymin,box$ymax),expand=FALSE) +
   labs(x = "", y = "", title = "Vecinos Queen") +
   theme(panel.background=element_rect(fill = NA, color = NA))
