@@ -1,0 +1,241 @@
+Area;Localidad;Año;Casos;Población
+1;Usaquén;2012;24;505657
+2;Chapinero;2012;11;147658
+3;Santa Fe;2012;9;101296
+4;San Cristóbal;2012;14;385095
+5;Usme;2012;8;345128
+6;Tunjuelito;2012;4;172012
+7;Bosa;2012;19;646887
+8;Kennedy;2012;26;992398
+9;Fontibón;2012;10;347883
+10;Engativá;2012;21;784983
+11;Suba;2012;29;1090136
+12;Barrios Unidos;2012;8;150063
+13;Teusaquillo;2012;4;141395
+14;Los Mártires;2012;3;76849
+15;Antonio Nariño;2012;4;85852
+16;Puente Aranda;2012;5;242138
+17;La Candelaria;2012;0;18030
+18;Rafael Uribe Uribe;2012;18;362714
+19;Ciudad Bolívar;2012;19;596269
+20;Sumapaz;2012;0;3537
+1;Usaquén;2013;18;511667
+2;Chapinero;2013;11;149412
+3;Santa Fe;2013;6;101666
+4;San Cristóbal;2013;12;384071
+5;Usme;2013;12;348516
+6;Tunjuelito;2013;8;171417
+7;Bosa;2013;18;656769
+8;Kennedy;2013;32;996291
+9;Fontibón;2013;12;351346
+10;Engativá;2013;18;784587
+11;Suba;2013;20;1102361
+12;Barrios Unidos;2013;5;145433
+13;Teusaquillo;2013;9;141772
+14;Los Mártires;2013;2;75727
+15;Antonio Nariño;2013;3;83955
+16;Puente Aranda;2013;6;241638
+17;La Candelaria;2013;0;17742
+18;Rafael Uribe Uribe;2013;6;362118
+19;Ciudad Bolívar;2013;27;598539
+20;Sumapaz;2013;1;3400
+1;Usaquén;2014;20;516487
+2;Chapinero;2014;6;150818
+3;Santa Fe;2014;11;101925
+4;San Cristóbal;2014;14;383077
+5;Usme;2014;10;351251
+6;Tunjuelito;2014;9;170862
+7;Bosa;2014;18;664774
+8;Kennedy;2014;30;999168
+9;Fontibón;2014;13;354097
+10;Engativá;2014;36;783973
+11;Suba;2014;27;1112165
+12;Barrios Unidos;2014;3;141514
+13;Teusaquillo;2014;4;142033
+14;Los Mártires;2014;3;74782
+15;Antonio Nariño;2014;3;82348
+16;Puente Aranda;2014;16;241132
+17;La Candelaria;2014;3;17494
+18;Rafael Uribe Uribe;2014;19;361478
+19;Ciudad Bolívar;2014;32;600273
+20;Sumapaz;2014;1;3298
+1;Usaquén;2015;26;520480
+2;Chapinero;2015;11;151996
+3;Santa Fe;2015;10;102155
+4;San Cristóbal;2015;17;382247
+5;Usme;2015;15;353558
+6;Tunjuelito;2015;5;170388
+7;Bosa;2015;9;671404
+8;Kennedy;2015;29;1001537
+9;Fontibón;2015;12;356388
+10;Engativá;2015;36;783433
+11;Suba;2015;41;1120332
+12;Barrios Unidos;2015;6;138250
+13;Teusaquillo;2015;7;142245
+14;Los Mártires;2015;4;73987
+15;Antonio Nariño;2015;3;81014
+16;Puente Aranda;2015;9;240697
+17;La Candelaria;2015;1;17290
+18;Rafael Uribe Uribe;2015;19;360924
+19;Ciudad Bolívar;2015;36;601716
+20;Sumapaz;2015;0;3224
+1;Usaquén;2016;34;524563
+2;Chapinero;2016;12;153204
+3;Santa Fe;2016;3;102485
+4;San Cristóbal;2016;21;382102
+5;Usme;2016;23;356045
+6;Tunjuelito;2016;12;170248
+7;Bosa;2016;17;677908
+8;Kennedy;2016;53;1004979
+9;Fontibón;2016;11;358804
+10;Engativá;2016;22;784129
+11;Suba;2016;43;1128753
+12;Barrios Unidos;2016;7;135739
+13;Teusaquillo;2016;10;142633
+14;Los Mártires;2016;3;73440
+15;Antonio Nariño;2016;8;80014
+16;Puente Aranda;2016;14;240673
+17;La Candelaria;2016;1;17141
+18;Rafael Uribe Uribe;2016;11;361010
+19;Ciudad Bolívar;2016;34;603882
+20;Sumapaz;2016;0;3166
+1;Usaquén;2017;26;528924
+2;Chapinero;2017;6;154506
+3;Santa Fe;2017;14;102984
+4;San Cristóbal;2017;20;382696
+5;Usme;2017;13;358813
+6;Tunjuelito;2017;8;170440
+7;Bosa;2017;31;684570
+8;Kennedy;2017;33;1009665
+9;Fontibón;2017;16;361474
+10;Engativá;2017;28;786139
+11;Suba;2017;36;1137868
+12;Barrios Unidos;2017;7;133890
+13;Teusaquillo;2017;9;143211
+14;Los Mártires;2017;11;73112
+15;Antonio Nariño;2017;4;79336
+16;Puente Aranda;2017;14;241114
+17;La Candelaria;2017;2;17049
+18;Rafael Uribe Uribe;2017;17;361722
+19;Ciudad Bolívar;2017;40;606799
+20;Sumapaz;2017;0;3137
+1;Usaquén;2018;28;535693
+2;Chapinero;2018;22;156479
+3;Santa Fe;2018;12;103985
+4;San Cristóbal;2018;23;385514
+5;Usme;2018;17;363394
+6;Tunjuelito;2018;10;171632
+7;Bosa;2018;32;694397
+8;Kennedy;2018;50;1019748
+9;Fontibón;2018;17;365884
+10;Engativá;2018;33;792518
+11;Suba;2018;41;1152387
+12;Barrios Unidos;2018;4;133126
+13;Teusaquillo;2018;11;144526
+14;Los Mártires;2018;6;73277
+15;Antonio Nariño;2018;3;79229
+16;Puente Aranda;2018;10;242905
+17;La Candelaria;2018;2;17075
+18;Rafael Uribe Uribe;2018;18;364532
+19;Ciudad Bolívar;2018;37;613127
+20;Sumapaz;2018;0;3138
+1;Usaquén;2019;43;550706
+2;Chapinero;2019;25;163148
+3;Santa Fe;2019;10;105926
+4;San Cristóbal;2019;22;392322
+5;Usme;2019;14;374887
+6;Tunjuelito;2019;13;175481
+7;Bosa;2019;31;707173
+8;Kennedy;2019;45;1027373
+9;Fontibón;2019;16;377118
+10;Engativá;2019;40;802780
+11;Suba;2019;47;1192644
+12;Barrios Unidos;2019;11;138316
+13;Teusaquillo;2019;11;152414
+14;Los Mártires;2019;10;82957
+15;Antonio Nariño;2019;4;80095
+16;Puente Aranda;2019;12;247237
+17;La Candelaria;2019;1;17345
+18;Rafael Uribe Uribe;2019;20;372981
+19;Ciudad Bolívar;2019;31;628670
+20;Sumapaz;2019;0;3298
+1;Usaquén;2020;38;564539
+2;Chapinero;2020;10;169786
+3;Santa Fe;2020;6;107458
+4;San Cristóbal;2020;18;397410
+5;Usme;2020;16;384943
+6;Tunjuelito;2020;11;178667
+7;Bosa;2020;31;717694
+8;Kennedy;2020;32;1034379
+9;Fontibón;2020;10;386864
+10;Engativá;2020;29;811472
+11;Suba;2020;35;1227787
+12;Barrios Unidos;2020;8;143265
+13;Teusaquillo;2020;9;161222
+14;Los Mártires;2020;6;83590
+15;Antonio Nariño;2020;1;81472
+16;Puente Aranda;2020;4;250968
+17;La Candelaria;2020;1;17611
+18;Rafael Uribe Uribe;2020;15;380073
+19;Ciudad Bolívar;2020;33;641306
+20;Sumapaz;2020;0;3449
+1;Usaquén;2021;32;571268
+2;Chapinero;2021;11;173353
+3;Santa Fe;2021;9;107784
+4;San Cristóbal;2021;26;401060
+5;Usme;2021;20;393366
+6;Tunjuelito;2021;12;180158
+7;Bosa;2021;40;722893
+8;Kennedy;2021;43;1034838
+9;Fontibón;2021;11;393532
+10;Engativá;2021;41;814100
+11;Suba;2021;35;1252811
+12;Barrios Unidos;2021;8;146876
+13;Teusaquillo;2021;6;167879
+14;Los Mártires;2021;7;83426
+15;Antonio Nariño;2021;7;82201
+16;Puente Aranda;2021;12;253367
+17;La Candelaria;2021;3;17877
+18;Rafael Uribe Uribe;2021;15;383960
+19;Ciudad Bolívar;2021;30;649834
+20;Sumapaz;2021;1;3584
+1;Usaquén;2022;31;579447
+2;Chapinero;2022;18;176471
+3;Santa Fe;2022;14;107630
+4;San Cristóbal;2022;33;403674
+5;Usme;2022;18;400580
+6;Tunjuelito;2022;9;181476
+7;Bosa;2022;27;726293
+8;Kennedy;2022;53;1034293
+9;Fontibón;2022;27;399020
+10;Engativá;2022;39;815262
+11;Suba;2022;44;1273909
+12;Barrios Unidos;2022;8;150151
+13;Teusaquillo;2022;12;167657
+14;Los Mártires;2022;4;83142
+15;Antonio Nariño;2022;3;82958
+16;Puente Aranda;2022;13;255123
+17;La Candelaria;2022;1;18143
+18;Rafael Uribe Uribe;2022;17;386696
+19;Ciudad Bolívar;2022;46;656015
+20;Sumapaz;2022;1;3713
+1;Usaquén;2023;29;586.954
+2;Chapinero;2023;15;179.406
+3;Santa Fe;2023;11;107.677
+4;San Cristóbal;2023;28;406.498
+5;Usme;2023;28;407.645
+6;Tunjuelito;2023;13;182.943
+7;Bosa;2023;31;729.781
+8;Kennedy;2023;54;1.035.224
+9;Fontibón;2023;12;404.252
+10;Engativá;2023;31;817.019
+11;Suba;2023;47;1.294.358
+12;Barrios Unidos;2023;5;153.342
+13;Teusaquillo;2023;9;166.428
+14;Los Mártires;2023;7;82.848
+15;Antonio Nariño;2023;6;83.925
+16;Puente Aranda;2023;10;256.731
+17;La Candelaria;2023;4;18.409
+18;Rafael Uribe Uribe;2023;24;389.238
+19;Ciudad Bolívar;2023;45;661.592
+20;Sumapaz;2023;0;3.825
