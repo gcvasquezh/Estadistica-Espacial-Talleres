@@ -188,25 +188,23 @@ ggplot() +
 
 ## FUNCIÓN G ####
 G1<-Gest(puntos)
-plot(G1)
-plot(envelope(puntos, Gest), main=" Función G con bandas de confianza")
+plot(G1, main="Función G - Presencia de Sismos en Colombia")
+plot(envelope(puntos, Gest), main=" Función G con bandas de confianza - Presencia de Sismos en Colombia")
 
 ## FUNCIÓN F ####
 F1<-Fest(puntos)
-plot(F1)
-plot(envelope(puntos, Fest), main=" Función F con bandas de confianza")
+plot(F1, main="Función F - Presencia de Sismos en Colombia")
+plot(envelope(puntos, Fest), main=" Función F con bandas de confianza - Presencia de Sismos en Colombia")
 
 ## FUNCIÓN k ####
 K1<-Kest(puntos)
-plot(K1)
-plot(envelope(puntos, Kest), main=" Función K con bandas de confianza")
+plot(K1, main="Función K - Presencia de Sismos en Colombia")
+plot(envelope(puntos, Kest), main=" Función K con bandas de confianza - Presencia de Sismos en Colombia")
 
 ## Test de aleatoriedad basado en cuadrantes ####
 Q<-quadratcount(puntos, nx=6,ny=3)
-plot(puntos)
-plot(Q, add=TRUE)
+plot(Q, main = "Conteo de puntos por cuadrantes")
 
 M<-quadrat.test(puntos, nx=3, ny=3)
-plot(puntos)
-plot(M, add=TRUE)
+plot(M, main = "Test de Aleatoriedad por cuadrantes")
 M
